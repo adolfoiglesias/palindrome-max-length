@@ -20,15 +20,15 @@ public class MaxPalindrome {
 
 	public static void main(String args[]) {
 	
-		  Scanner myObj = new Scanner(System.in);
+		  Scanner scanner = new Scanner(System.in);
 		  System.out.println("Please enter a text or enter 1 to exit");
 		  
-		  while(myObj.hasNextLine()) {
+		  while(scanner.hasNextLine()) {
 			  
-			  String text = myObj.nextLine(); 
+			  String text = scanner.nextLine(); 
 			  
 			  if(text.equalsIgnoreCase("1")) {
-				  myObj.close();
+				  scanner.close();
 				  System.exit(0);
 			  }
 			  
@@ -61,12 +61,12 @@ public class MaxPalindrome {
 		
 		StringBuffer buffer = new StringBuffer();
 		
-		String sinPar = null;		
+		String noPair = null;		
 		int posPalindrome = -1;
 		
 		for (int i = 0; i < listCharacters.size(); i++) {
 			
-			boolean hasPar = false;			
+			boolean hasPair = false;			
 			String objectI = listCharacters.get(i);
 			
 			for (int j = i+1 ; j < listCharacters.size(); j++) {
@@ -77,20 +77,19 @@ public class MaxPalindrome {
 					posPalindrome++;
 					buffer.insert(posPalindrome, objectI);
 					buffer.insert(posPalindrome+1, listCharacters.remove(j));
-					hasPar = true;					
+					hasPair = true;					
 					break;
 				}
 			}
 			
-			if(!hasPar && sinPar == null) {
-				sinPar = objectI;
+			if(!hasPair && noPair == null) {
+				noPair = objectI;
 			}
 		}
 		
-		if(sinPar != null) {
-			buffer.insert(posPalindrome+1, sinPar);
-		}
-		 
+		if(noPair != null) {
+			buffer.insert(posPalindrome+1, noPair);
+		}		 
 		
 		return buffer.toString();		
 	}
