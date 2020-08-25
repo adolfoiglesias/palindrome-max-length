@@ -25,13 +25,11 @@ public class MaxPalindrome {
 		  
 		  while(scanner.hasNextLine()) {
 			  
-			  String text = scanner.nextLine(); 
-			  
+			  String text = scanner.nextLine(); 			  
 			  if(text.equalsIgnoreCase("1")) {
 				  scanner.close();
 				  System.exit(0);
 			  }
-			  
 			  System.out.println("Result: " + findMaxPalindrome(text));
 			  System.out.println("Enter the next text");
 		  }
@@ -48,7 +46,8 @@ public class MaxPalindrome {
 	public static String  findMaxPalindrome(String text) {
 		
 		
-		if(text == null || !text.matches("([a-zA-Z]|\\s)+")) {
+		if(text == null 
+				|| !text.matches("([a-zA-Z]|\\s)+")) {
 			return "there is no palindrome word";
 		}
 		
